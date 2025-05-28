@@ -774,4 +774,5 @@ main()
 #method = cnc.split()[2]
 url = requests.get(sys.argv[1:])
 method = 'GET'
+print(f'{url}')
 os.system(f'go run Hulk.go -site {url} -data {method}')
